@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="main"
+            type="com.sgnbs.myapplication.MainActivity" />
+        <variable
+            name="user"
+            type="com.sgnbs.myapplication.entities.User" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahah"
+            android:onClick="@{() -> main.onclick()}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(user.age)}"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ssss"
+            android:text="@={user.name}"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:pic="@{@drawable/jia_blue}"/>
+    </LinearLayout>
+
+</layout>
