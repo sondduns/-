@@ -25,11 +25,11 @@
             android:titleTextColor="@color/white"
             android:title="打卡应用"
             android:navigationIcon="@drawable/menu">
-            <TextClock
-                android:id="@+id/clock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"/>
+<!--            <TextClock-->
+<!--                android:id="@+id/clock"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/white"/>-->
         </Toolbar>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,9 +42,9 @@
                 android:id="@+id/on"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.format(@string/on, work.onTime ?? @string/no)}"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                android:text="@{String.format(@string/on, @string/no)}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="15dp"/>
@@ -52,9 +52,9 @@
                 android:id="@+id/off"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.format(@string/off, work.offTime ?? @string/no)}"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                android:text="@{String.format(@string/off, @string/no)}"
                 app:layout_constraintTop_toBottomOf="@id/on"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="15dp"/>
@@ -62,12 +62,44 @@
                 android:id="@+id/work_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.format(@string/work_hour, work.workHour ?? @string/no)}"
+                android:text="@{String.format(@string/work_hour, @string/no)}"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@id/off"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="15dp"/>
+            <TextView
+                android:id="@+id/work_diff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/work_diff, @string/no)}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="@+id/work_time"
+                app:layout_constraintStart_toEndOf="@+id/work_time"
+                android:layout_marginStart="20dp"/>
+
+
+            <Button
+                android:id="@+id/btn_on_take"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/on"
+                app:layout_constraintBottom_toBottomOf="@+id/on"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="15dp"
+                android:onClick="@{() -> main.onTake(0)}"
+                android:text="上班补卡"/>
+            <Button
+                android:id="@+id/btn_off_take"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/off"
+                app:layout_constraintBottom_toBottomOf="@+id/off"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:onClick="@{() -> main.onTake(1)}"
+                android:layout_marginEnd="15dp"
+                android:text="下班补卡"/>
 
 
             <Button

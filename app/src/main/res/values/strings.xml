@@ -4,5 +4,6 @@
     <string name="on">上班时间:%s</string>
     <string name="off">下班时间:%s</string>
     <string name="work_hour">当天工时:%s</string>
+    <string name="work_diff">工时盈余:%s</string>
     <string name="no">暂无</string>
 </resources>

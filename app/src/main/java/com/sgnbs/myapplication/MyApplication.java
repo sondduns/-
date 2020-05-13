@@ -13,11 +13,14 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        dataBase = Room.databaseBuilder(getApplicationContext(), MyDataBase.class, "work")
-                    .build();
+
     }
 
-    public static MyDataBase getDataBase() {
+    public MyDataBase getDataBase() {
+        if (dataBase == null) {
+            dataBase = Room.databaseBuilder(getApplicationContext(), MyDataBase.class, "work")
+                    .build();
+        }
         return dataBase;
     }
 }
